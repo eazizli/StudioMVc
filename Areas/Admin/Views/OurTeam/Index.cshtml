@@ -1,0 +1,53 @@
+﻿@using StudioaMvc.Models
+@model List<OurTeam>
+<a asp-controller="OurTeam" asp-action="Create">
+
+    <button type="button" class="btn btn-success">Create</button>
+</a>
+@foreach (var item in Model)
+{
+    <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="single-team-member">
+            <div class="team-img">
+                <a href="#">
+                    <img style="width:200px" src="~/assets/img/@item.ImageName" alt="">
+                </a>
+                <div class="team-social-icon text-center">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="team-content text-center">
+                <h4>@item.Name</h4>
+                <p>@item.Work</p>
+            </div>
+        </div>
+    </div>
+    <a asp-action="Delete" asp-route-id="@item.Id">
+
+        <button type="button" class="btn btn-danger">Delete</button>
+    </a>
+    <a asp-action="Update" asp-route-id="@item.Id">
+
+        <button type="button" class="btn btn-warning">Update</button>
+    </a>
+    <a asp-action="Detail" asp-route-id="@item.Id">
+
+    <button type="button" class="btn btn-info">Detail</button>
+    </a>
+}
